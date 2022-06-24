@@ -73,7 +73,7 @@ class HandleCollisionsAction(Action):
             snake = cast.get_first_actor("snakes")
             segments = snake.get_segments()
             # don't need food here
-            food = cast.get_first_actor("foods")
+            #food = cast.get_first_actor("foods")
 
             x = int(constants.MAX_X / 2)
             y = int(constants.MAX_Y / 2)
@@ -87,4 +87,4 @@ class HandleCollisionsAction(Action):
             for segment in segments:
                 segment.set_color(constants.WHITE)
             # don't need food here
-            food.set_color(constants.WHITE)
+            #food.set_color(constants.WHITE)
