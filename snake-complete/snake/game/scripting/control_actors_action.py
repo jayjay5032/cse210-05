@@ -30,21 +30,46 @@ class ControlActorsAction(Action):
             cast (Cast): The cast of Actors in the game.
             script (Script): The script of Actions in the game.
         """
+
+        snake_one = cast.get_first_actor("snake_one")
+        snake_two = cast.get_first_actor("snake_two")
+
         # left
         if self._keyboard_service.is_key_down('a'):
             self._direction = Point(-constants.CELL_SIZE, 0)
+            snake_one.turn_head(self._direction)
         
         # right
         if self._keyboard_service.is_key_down('d'):
             self._direction = Point(constants.CELL_SIZE, 0)
+            snake_one.turn_head(self._direction)
         
         # up
         if self._keyboard_service.is_key_down('w'):
             self._direction = Point(0, -constants.CELL_SIZE)
+            snake_one.turn_head(self._direction)
         
         # down
         if self._keyboard_service.is_key_down('s'):
             self._direction = Point(0, constants.CELL_SIZE)
+            snake_one.turn_head(self._direction)
+
+        # left
+        if self._keyboard_service.is_key_down('j'):
+            self._direction = Point(-constants.CELL_SIZE, 0)
+            snake_two.turn_head(self._direction)
         
-        snake = cast.get_first_actor("snake_one")
-        snake.turn_head(self._direction)
+        # right
+        if self._keyboard_service.is_key_down('l'):
+            self._direction = Point(constants.CELL_SIZE, 0)
+            snake_two.turn_head(self._direction)
+        
+        # up
+        if self._keyboard_service.is_key_down('i'):
+            self._direction = Point(0, -constants.CELL_SIZE)
+            snake_two.turn_head(self._direction)
+        
+        # down
+        if self._keyboard_service.is_key_down('k'):
+            self._direction = Point(0, constants.CELL_SIZE)
+            snake_two.turn_head(self._direction)
